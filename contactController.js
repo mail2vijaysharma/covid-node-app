@@ -43,7 +43,7 @@ exports.new = function (req, res) {
     contact.name = req.body.name;
 
 
-    const fields = ['name', 'gender', 'email',"phone","userData"];
+    const fields = ['name', 'gender', 'email', "phone", "userData"];
     try {
         const csv = parse(req.body, fields);
         console.log("hello" + csv);
@@ -51,11 +51,11 @@ exports.new = function (req, res) {
         console.error(err);
     }
 
-// save the contact and check for errors
+    // save the contact and check for errors
     contact.save(function (err) {
         // if (err)
         //     res.json(err);
-res.json({
+        res.json({
             message: 'New contact created!',
             data: contact
         });
@@ -75,14 +75,14 @@ exports.view = function (req, res) {
 };
 // Handle update contact info
 exports.update = function (req, res) {
-Contact.findById(req.params.contact_id, function (err, contact) {
+    Contact.findById(req.params.contact_id, function (err, contact) {
         if (err)
             res.send(err);
-contact.userData = req.body.userData ? req.body.userData : contact.userData;
+        contact.userData = req.body.userData ? req.body.userData : contact.userData;
         contact.gender = req.body.gender;
         contact.email = req.body.email;
         contact.phone = req.body.phone;
-// save the contact and check for errors
+        // save the contact and check for errors
         contact.save(function (err) {
             if (err)
                 res.json(err);
@@ -100,7 +100,7 @@ exports.delete = function (req, res) {
     }, function (err, contact) {
         if (err)
             res.send(err);
-res.json({
+        res.json({
             status: "success",
             message: 'Contact deleted'
         });

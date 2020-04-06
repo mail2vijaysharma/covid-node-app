@@ -1,6 +1,6 @@
-FROM node:12.13.1
+FROM node:10
 # Create app directory
-WORKDIR /usr/src/app
+WORKDIR /usr/src/covid-app
 # Install app dependencies
 COPY package*.json ./
 RUN npm install

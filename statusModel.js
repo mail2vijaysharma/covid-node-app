@@ -11,8 +11,8 @@ var statusSchema = mongoose.Schema({
     },
     gender: String,
     phone: Number,
-    status:String,
-    intersection:Object, // [{name,gender,place,time},{name,gender,place,time},{name,gender,place,time}]
+    status: String,
+    intersection: Object, // [{name,gender,place,time},{name,gender,place,time},{name,gender,place,time}]
     published_date: {
         type: Date,
         default: Date.now
